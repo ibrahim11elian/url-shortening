@@ -1,38 +1,210 @@
-.App {
-  text-align: center;
+* {
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+  text-decoration: none;
+  text-transform: capitalize;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+:root {
+  --cyan: hsl(180, 66%, 49%);
+  --dar-violet: hsl(257, 27%, 26%);
+  --red: hsl(0, 87%, 67%);
+  --gray: hsl(0, 0%, 75%);
+  --main-text-color: hsl(257, 7%, 63%);
+  --very-dark-blue: hsl(255, 11%, 22%);
+  --hover-color: hsl(260, 8%, 14%);
+  --main-transition: 0.3s;
+  --main-radius: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  height: 100vh;
+}
+
+.container {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.app-header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 6rem;
+}
+
+.app-header .nav-bar {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.app-header .nav-bar .logo {
+  padding-top: 0.5rem;
+}
+
+.app-header .nav-bar .nav-list {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  text-transform: capitalize;
+  width: 100%;
+}
+
+.app-header .nav-bar .nav-list li a {
+  color: var(--main-text-color);
+}
+
+.app-header .nav-bar .nav-list li a:hover {
+  color: var(--hover-color);
+}
+
+.app-header .nav-bar .nav-list li:last-child {
+  margin-left: auto;
+}
+
+.sign {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.sign #login {
+  color: var(--main-text-color);
+}
+
+.sign #login:hover {
+  color: var(--hover-color);
+}
+
+.sign #signup {
+  color: white;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 7rem;
+  height: 40px;
+  border-radius: 5rem;
+  background-color: var(--gray);
+  -webkit-border-radius: 5rem;
+  -moz-border-radius: 5rem;
+  -ms-border-radius: 5rem;
+  -o-border-radius: 5rem;
 }
 
-.App-link {
-  color: #61dafb;
+.sign #signup:hover {
+  background-color: var(--cyan);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.menu-btn {
+  font-size: 2rem;
+  color: var(--gray);
+  display: none;
+}
+
+.fa-xmark {
+  color: var(--hover-color);
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+  .menu-btn {
+    display: block;
   }
-  to {
-    transform: rotate(360deg);
+
+  .app-header .nav-bar {
+    position: relative;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .app-header .nav-bar .nav-list {
+    position: absolute;
+    flex-direction: column;
+    padding: 3rem 0;
+    width: 100%;
+    top: 100%;
+    background-color: var(--dar-violet);
+    border-radius: var(--main-radius);
+    -webkit-border-radius: var(--main-radius);
+    -moz-border-radius: var(--main-radius);
+    -ms-border-radius: var(--main-radius);
+    -o-border-radius: var(--main-radius);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+
+  .app-header .nav-bar .nav-list.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .app-header .nav-bar .nav-list li a {
+    color: white;
+  }
+
+  .app-header .nav-bar .nav-list li a:hover {
+    color: var(--cyan);
+  }
+
+  .app-header .nav-bar .nav-list li {
+    width: 90%;
+    text-align: center;
+  }
+
+  .app-header .nav-bar .nav-list li:last-child {
+    margin: 0;
+  }
+
+  .sign {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--main-text-color);
+    padding-top: 1rem;
+  }
+
+  .sign #login {
+    color: white;
+  }
+
+  .sign #login:hover {
+    color: var(--cyan);
+  }
+
+  .sign #signup {
+    width: 50%;
+  }
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+  .container {
+    width: 90%;
+  }
+  .app-header .nav-bar {
+    gap: 1rem;
+  }
+  .app-header .nav-bar .nav-list {
+    gap: 1.5rem;
+  }
+  .sign {
+    gap: 1rem;
   }
 }
