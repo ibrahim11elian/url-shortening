@@ -11,6 +11,8 @@ function URLForm({ newLink, setNewLink, linkList, setLinkList }) {
       const urlRegex =
         /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;
       if (newLink.match(urlRegex)) {
+        document.querySelector(".submit-btn > span").style.display = "none";
+        document.querySelector(".loading").style.display = "flex";
         let shortLink = "";
         await shortenURL(newLink)
           .then((res) => {
@@ -23,7 +25,8 @@ function URLForm({ newLink, setNewLink, linkList, setLinkList }) {
           fullLink: newLink,
           shortenLink: shortLink,
         };
-
+        document.querySelector(".submit-btn > span").style.display = "block";
+        document.querySelector(".loading").style.display = "none";
         setLinkList((list) => {
           return [...list, link];
         });
@@ -60,7 +63,13 @@ function URLForm({ newLink, setNewLink, linkList, setLinkList }) {
         }}
       />
       <button className="submit-btn" type="submit">
-        shorten it!
+        <span>shorten it!</span>
+        <div class="loading centering">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </button>
       <div className="warning"></div>
     </form>

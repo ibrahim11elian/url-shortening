@@ -281,6 +281,7 @@ body {
   -o-border-radius: calc(var(--main-radius) / 2);
   text-transform: capitalize;
   cursor: pointer;
+  position: relative;
 }
 
 .submit-btn:hover,
@@ -389,6 +390,63 @@ body {
 .shorten-div .fa-xmark:hover {
   color: var(--hover-color);
 }
+
+/* start loading animation styling */
+.loading {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
+.loading span {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  background-color: var(--dar-violet);
+  animation: loading-animation 1s ease-in-out infinite;
+  -webkit-animation: loading-animation 1s ease-in-out infinite;
+}
+
+.loading span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.loading span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.loading span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@keyframes loading-animation {
+  0% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+/* end loading animation styling */
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
