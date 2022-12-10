@@ -11,9 +11,13 @@ function URLForm({ newLink, setNewLink, linkList, setLinkList }) {
       const urlRegex =
         /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;
       if (newLink.match(urlRegex)) {
+        // display loading animation
         document.querySelector(".submit-btn > span").style.display = "none";
         document.querySelector(".loading").style.display = "flex";
+
         let shortLink = "";
+
+        // calling function that fetching the api
         await shortenURL(newLink)
           .then((res) => {
             shortLink = res.result.full_short_link;
@@ -25,15 +29,19 @@ function URLForm({ newLink, setNewLink, linkList, setLinkList }) {
           fullLink: newLink,
           shortenLink: shortLink,
         };
+
+        // hide loading animation after get the results
         document.querySelector(".submit-btn > span").style.display = "block";
         document.querySelector(".loading").style.display = "none";
         setLinkList((list) => {
           return [...list, link];
         });
 
+        // add the ne list to local storage
         localStorage.setItem("linkList", JSON.stringify([...linkList, link]));
         setNewLink("");
       } else {
+        // display warning panel
         document.querySelector(".url-input").style.cssText =
           "border: 4px solid #f46262";
         document.querySelector(".warning").textContent =
@@ -41,6 +49,7 @@ function URLForm({ newLink, setNewLink, linkList, setLinkList }) {
         document.querySelector(".warning").style.cssText = "display: block";
       }
     } else {
+      // display warning panel
       document.querySelector(".url-input").style.cssText =
         "border: 4px solid #f46262";
       document.querySelector(".warning").textContent = "please add a link";

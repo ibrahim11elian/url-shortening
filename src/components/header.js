@@ -4,11 +4,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
+  // menu icon state for switch the icons and display the nav list
   const [menuState, setMenuState] = useState(false);
+
   const activeMenu = () => {
     document.querySelector(".nav-list").classList.toggle("active");
     setMenuState(!menuState);
   };
+
   return (
     <header className="app-header container">
       <nav className="nav-bar">

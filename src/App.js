@@ -6,11 +6,12 @@ import URLForm from "./components/url_form";
 import LinkList from "./components/link_list";
 import Statistics from "./components/statistics";
 import GetStarted from "./components/get_started";
+import Footer from "./components/footer";
 
 function App() {
   // link state
   const [newLink, setNewLink] = useState("");
-  // links list state default value comes from local storage if not then its empty list
+  // links list state default value comes from local storage if not then it's empty list
   const [linkList, setLinkList] = useState(
     JSON.parse(localStorage.getItem("linkList")) || []
   );
@@ -21,6 +22,7 @@ function App() {
     localStorage.setItem("linkList", JSON.stringify(newLinkList));
     setLinkList([...newLinkList]);
   };
+
   return (
     <div className="App">
       <Header />
@@ -40,6 +42,7 @@ function App() {
         <Statistics />
       </section>
       <GetStarted />
+      <Footer />
     </div>
   );
 }

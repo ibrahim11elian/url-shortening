@@ -29,6 +29,7 @@ function ShortenLink({ link, removeLink }) {
   );
 }
 
+// display the copied word by clicking on copy button
 function copied(e) {
   const btn = e.target;
   btn.textContent = "copied!";
@@ -40,10 +41,10 @@ function copied(e) {
 }
 
 function copyToClipBoard() {
-  // Get the text field
+  // Get the text
   var copyText = document.querySelector(".shorten-link");
 
-  // Copy the text inside the text field
+  // Copy the text inside the text
   navigator.clipboard.writeText(copyText.textContent);
 }
 
