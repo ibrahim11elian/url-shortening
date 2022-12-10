@@ -21,22 +21,22 @@ function Footer() {
         })}
         <ul className="social">
           <li>
-            <a href="">
+            <a href="https://www.facebook.com/ibrahim11ahmed/">
               <FontAwesomeIcon icon={["fab", "facebook-square"]} />
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="https://twitter.com/ibrahim11elian">
               <FontAwesomeIcon icon={["fab", "twitter"]} />
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="#">
               <FontAwesomeIcon icon={["fab", "pinterest"]} />
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="https://www.instagram.com/ibrahim11ahmed/">
               <FontAwesomeIcon icon={["fab", "instagram"]} />
             </a>
           </li>
