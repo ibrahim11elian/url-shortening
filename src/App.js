@@ -4,6 +4,8 @@ import Header from "./components/header";
 import Home from "./components/home";
 import URLForm from "./components/url_form";
 import LinkList from "./components/link_list";
+import Statistics from "./components/statistics";
+import GetStarted from "./components/get_started";
 
 function App() {
   // link state
@@ -35,7 +37,9 @@ function App() {
           setLinkList={setLinkList}
           removeLink={removeLink}
         />
+        <Statistics />
       </section>
+      <GetStarted />
     </div>
   );
 }

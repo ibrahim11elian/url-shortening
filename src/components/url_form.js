@@ -64,7 +64,7 @@ function URLForm({ newLink, setNewLink, linkList, setLinkList }) {
       />
       <button className="submit-btn" type="submit">
         <span>shorten it!</span>
-        <div class="loading centering">
+        <div className="loading centering">
           <span></span>
           <span></span>
           <span></span>
