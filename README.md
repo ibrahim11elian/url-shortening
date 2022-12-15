@@ -30,6 +30,7 @@ It's landing page, integrated with the [shrtcode API](https://app.shrtco.de/) to
 - Copy the shortened link to their clipboard in a single click
 - Receive an error message when the `form` is submitted if:
   - The `input` field is empty
+  - wrong URL pattern
 
 ### Links
 
